@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 8px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>รายชื่อการเข้าเรียน</h1>
+    <div id="add-form" style="text-align: center; margin-bottom: 20px;">
+        <label for="id">รหัสประจำตัว:</label>
+        <input type="text" id="id">
+        <label for="name">ชื่อ:</label>
+        <input type="text" id="name">
+        <button onclick="addPerson()">เพิ่มบุคคล</button>
+    </div>
+    <div id="search-form" style="text-align: center; margin-bottom: 20px;">
+        <label for="search">ค้นหาชื่อ:</label>
+        <input type="text" id="search" oninput="filterNames()">
+    </div>
+    <table id="attendance-table">
+        <thead>
+            <tr>
+                <th>รหัสประจำตัว</th>
+                <th>ชื่อ</th>
+                <th>สัปดาห์ที่ 1</th>
+                <th>สัปดาห์ที่ 2</th>
+                <th>สัปดาห์ที่ 3</th>
+                <th>สัปดาห์ที่ 4</th>
+                <th>สัปดาห์ที่ 5</th>
+            </tr>
+        </thead>
+        <tbody id="attendance-list">
+        </tbody>
+    </table>
+    <!-- เพิ่มปุ่มสำหรับ Export ข้อมูลในรูปแบบ JSON -->
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="exportDataToJson()">Export JSON</button>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
